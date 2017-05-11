@@ -46,10 +46,11 @@ def buscar(*palavras_chave):
         caracter = chr(limite)
         try:
             unicode_name_upper = unicodedata.name(caracter).upper()
+            unicode_name_upper_list = unicode_name_upper.split()
         except ValueError:
             pass
         else:
-            if all([palavra in unicode_name_upper for palavra in palavras_upper]):
+            if all(palavra in unicode_name_upper_list for palavra in palavras_upper):
                 yield (caracter, unicode_name_upper)
         finally:
             limite += 1
