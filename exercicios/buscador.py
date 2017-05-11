@@ -20,15 +20,15 @@ def buscar(*palavras_chave):
     """
     limite = 0
     max_unicode_value = sys.maxunicode
-    palavras_lower = [palavra.lower() for palavra in palavras_chave]
+    palavras_upper = [palavra.upper() for palavra in palavras_chave]
     while limite < max_unicode_value:
         caracter = chr(limite)
         try:
-            unicode_name_lower = unicodedata.name(caracter).lower()
+            unicode_name_upper = unicodedata.name(caracter).upper()
         except ValueError:
             pass
         else:
-            if all([palavra in unicode_name_lower for palavra in palavras_lower]):
-                yield (caracter, unicode_name_lower.upper())
+            if all([palavra in unicode_name_upper for palavra in palavras_upper]):
+                yield (caracter, unicode_name_upper)
         finally:
             limite += 1
