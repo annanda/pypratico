@@ -1,6 +1,7 @@
 import sys
 import unicodedata
 
+
 def buscar(*palavras_chave):
     """ Busca por caracteres que contenham a palavra chave em seu nome.
     Ex:
